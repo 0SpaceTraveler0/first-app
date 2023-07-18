@@ -9,12 +9,14 @@ services:
             - db
         volumes:
             - ./php/src:/var/www/html/
+        
         ports:
             - 8000:80
+        network_mode: host
         extra_hosts:
                   - "host.docker.internal:host-gateway"
     db:
-        container_name: db
+        container_name: database
         image: mysql
         restart: always
         environment:
